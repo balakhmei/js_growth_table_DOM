@@ -7,6 +7,10 @@ const removeColumn = document.querySelector('.remove-column');
 const table = document.querySelector('table');
 
 appendRow.addEventListener('click', () => {
+  if (table.rows.length >= 10) {
+    return;
+  }
+
   const rowNew = table.insertRow();
   const columnCount = table.rows[0].cells.length;
 
@@ -36,6 +40,10 @@ removeRow.addEventListener('click', () => {
 });
 
 appendColumn.addEventListener('click', () => {
+  if (table.rows[0].cells.length >= 10) {
+    return;
+  }
+
   for (const row of table.rows) {
     row.insertCell();
   }
